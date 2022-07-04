@@ -39,20 +39,17 @@ export default function Home() {
         </div>
         <div className="mt-8 px-6">
           <TextField type="email" label="Enter email" size="medium" fullWidth />
-          <TextField
-            type="password"
-            label="Enter password"
-            size="medium"
-            fullWidth
-            className="mt-6"
-          />
-          <Button
-            variant="contained"
-            fullWidth
-            className="bg-slate-800 hover:bg-slate-900 mt-8 ml-auto py-3"
-          >
+          <div className="mt-6">
+            <TextField
+              type="password"
+              label="Enter password"
+              size="medium"
+              fullWidth
+            />
+          </div>
+          <button className="p-3 w-full rounded mt-8 text-sm bg-slate-800 hover:bg-slate-900 text-white text-center font-medium">
             Sign in
-          </Button>
+          </button>
           <p className="text-center text-xs text-gray-500 mt-8">
             Forgot your password?
           </p>

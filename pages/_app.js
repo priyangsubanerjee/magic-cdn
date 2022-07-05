@@ -1,10 +1,12 @@
 import "../styles/globals.css";
+import NextNProgress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps }) {
   return (
-    // 2. Use at the root of your app
-
-    <Component {...pageProps} />
+    <>
+      <NextNProgress height={4} />
+      <Component {...pageProps} />;
+    </>
   );
 }
 

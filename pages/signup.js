@@ -1,28 +1,8 @@
-import axios from "axios";
-import * as React from "react";
-import { useState, useEffect } from "react";
+import React from "react";
 import { Button, Paper, TextField } from "@mui/material";
 import Link from "next/link";
-import Loading from "../components/Loading";
 
-export default function Home() {
-  const [url, setUrl] = useState("");
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-  });
-
-  const uploadPhoto = async (e) => {
-    const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("data", file);
-
-    const upload = await axios.post("/api/hello", formData);
-    setUrl(`${window.location}api/v1/${upload.data.Key}`);
-  };
-
-  const signIn = () => {};
-
+function signup() {
   return (
     <div className="h-screen w-full bg-slate-50 flex items-center justify-center">
       <div className="w-[500px] borer rounded-md bg-white shadow-2xl shadow-slate-200">
@@ -43,52 +23,39 @@ export default function Home() {
           </p>
         </div>
         <div className="px-6 mt-7">
-          <h1 className="text-xl font-bold text-slate-700">Sign in</h1>
+          <h1 className="text-xl font-bold text-slate-700">Sign up</h1>
           <p className="text-xs text-slate-500 mt-1">
-            Dont have an account?{" "}
-            <Link href="/signup">
-              <a>Sign up</a>
+            Already having an account?{" "}
+            <Link href="/">
+              <a>Sign in</a>
             </Link>
           </p>
         </div>
         <div className="mt-8 px-6">
           <TextField
             type="email"
-            label="Enter email"
+            label="Enter your email"
             size="medium"
             fullWidth
-            value={credentials.email}
-            onChange={(e) =>
-              setCredentials({
-                ...credentials,
-                email: e.target.value,
-              })
-            }
           />
           <div className="mt-6">
             <TextField
               type="password"
-              label="Enter password"
+              label="Set a strong password"
               size="medium"
               fullWidth
-              value={credentials.password}
-              onChange={(e) =>
-                setCredentials({
-                  ...credentials,
-                  password: e.target.value,
-                })
-              }
             />
           </div>
           <button className="p-3 w-full rounded mt-8 text-sm bg-slate-800 hover:bg-slate-900 text-white text-center font-medium">
-            Sign in
+            Sign Up
           </button>
           <p className="text-center text-xs text-gray-500 my-8">
-            Forgot your password?
+            Having trouble?
           </p>
         </div>
       </div>
-      <Loading show={false} />
     </div>
   );
 }
+
+export default signup;

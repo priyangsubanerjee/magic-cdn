@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const cors = require("cors");
-// const multer = require("multer");
+const multer = require("multer");
 // const { uploadFile, getFileStream } = require("./backend/s3");
 // const fs = require("fs");
 // const util = require("util");
@@ -15,12 +15,7 @@ const cors = require("cors");
 // });
 
 dotenv.config();
-app.use(
-  cors({
-    origin: "https://magic-pv8np1cv5-priyangsubanerjee.vercel.app/",
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/", express.static(path.join(__dirname, "frontend")));
 

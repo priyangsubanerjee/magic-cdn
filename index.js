@@ -11,7 +11,7 @@ const util = require("util");
 const unlinkFile = util.promisify(fs.unlink);
 const cors = require("cors");
 const upload = multer({
-  dest: "uploads/",
+  dest: "tmp/",
 });
 
 dotenv.config();

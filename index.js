@@ -15,7 +15,12 @@ const cors = require("cors");
 // });
 
 dotenv.config();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://magic-pv8np1cv5-priyangsubanerjee.vercel.app/",
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 app.use("/", express.static(path.join(__dirname, "frontend")));
 

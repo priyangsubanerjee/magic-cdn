@@ -19,18 +19,18 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/", express.static(path.join(__dirname, "frontend")));
 
-// app.post("/", upload.single("data"), async function (req, res) {
-//   const file = req.file;
-//   const response = await uploadFile(file);
-//   await unlinkFile(file.path);
-//   res.json(response);
-// });
+app.post("/", upload.single("data"), async function (req, res) {
+  const file = req.file;
+  const response = await uploadFile(file);
+  await unlinkFile(file.path);
+  res.json(response);
+});
 
-// app.get("/v1/:id", (req, res) => {
-//   const id = req.params.id;
-//   const read = getFileStream(id);
-//   read.pipe(res);
-// });
+app.get("/v1/:id", (req, res) => {
+  const id = req.params.id;
+  const read = getFileStream(id);
+  read.pipe(res);
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

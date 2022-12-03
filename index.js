@@ -8,11 +8,11 @@ const cors = require("cors");
 const multer = require("multer");
 const { uploadFile, getFileStream } = require("./backend/s3");
 const fs = require("fs");
-// const util = require("util");
-// const unlinkFile = util.promisify(fs.unlink);
-// const upload = multer({
-//   dest: "tmp/aws",
-// });
+const util = require("util");
+const unlinkFile = util.promisify(fs.unlink);
+const upload = multer({
+  dest: "tmp/aws",
+});
 
 dotenv.config();
 app.use(cors());

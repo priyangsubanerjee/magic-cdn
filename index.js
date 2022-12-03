@@ -11,7 +11,7 @@ const fs = require("fs");
 const util = require("util");
 const unlinkFile = util.promisify(fs.unlink);
 const upload = multer({
-  dest: "tmp/aws",
+  dest: "tmp/",
 });
 
 dotenv.config();
